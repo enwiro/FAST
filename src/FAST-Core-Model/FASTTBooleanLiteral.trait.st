@@ -7,13 +7,18 @@ Subclassed for NamedBehavioural as methods/functions
 Has parameters , and a body (StatementBlock).
 Local variables are intended to be stored in the local entities of the body
 "
-Class {
-	#name : #FASTBehaviouralEntity,
-	#superclass : #FASTScopableEntity,
-	#traits : 'FASTTWithParameters',
-	#classTraits : 'FASTTWithParameters classTrait',
-	#instVars : [
-		'#statementBlock => FMOne type: #FASTStatementBlock opposite: #fastBehaviouralParent'
-	],
-	#category : #'FAST-Core-Model-Entities'
+Trait {
+	#name : #FASTTBooleanLiteral,
+	#traits : 'FASTTLiteral',
+	#classTraits : 'FASTTLiteral classTrait',
+	#category : #'FAST-Core-Model-Traits'
 }
+
+{ #category : #meta }
+FASTTBooleanLiteral classSide >> annotation [
+
+	<FMClass: #TBooleanLiteral super: #Object>
+	<package: #'FAST-Core-Model'>
+	<generated>
+	^self
+]
