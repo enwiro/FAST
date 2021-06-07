@@ -9,4 +9,4 @@
 
 ## Migration FASTCore to traits - Meta-Model
 
-![FAST Meta-model](./doc/images/FAST-Meta-Model.svg)
+![FAST Meta-model](./doc/images/FASTCore.svg)
