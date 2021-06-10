@@ -189,19 +189,19 @@ FASTMetamodelGenerator >> defineProperties [
 { #category : #definition }
 FASTMetamodelGenerator >> defineRelations [
 	super defineRelations.
-	(((tExpressionStatement property: #expression) comment: 'The expression of the statement') <>- ((tExpression property: #expressionStatementOwner) comment: 'The expression statement that own me (if it''s the case')) withoutPrimaryContainer.
+	(((tExpressionStatement property: #expression) comment: 'The expression of the statement') <>- ((tExpression property: #expressionStatementOwner) comment: 'The expression statement that own me (if it''s the case')).
 
 	(((tReturnStatement property: #expression) comment: 'The expression returned') <>- ((tExpression property: #returnOwner)
-		comment: 'The return statement that own the expression (if it''s the case)')) withoutPrimaryContainer.
+		comment: 'The return statement that own the expression (if it''s the case)')).
 		
 	(((tBehaviouralEntity property: #statementBlock) comment: 'Statements block of the behavioural entity')
-		<>- ((tStatementBlock property: #fastBehaviouralParent) comment: 'Behavioural entity containing the statement block.')) withoutPrimaryContainer.
+		<>- ((tStatementBlock property: #fastBehaviouralParent) comment: 'Behavioural entity containing the statement block.')).
 	
-	(((tStatement property: #statementContainer) comment: 'Block containing this statement.') *-<> ((tStatementBlock property: #statements) comment: 'Statements enclosed in this block')) withoutPrimaryContainer.
+	(((tStatement property: #statementContainer) comment: 'Block containing this statement.') *-<> ((tStatementBlock property: #statements) comment: 'Statements enclosed in this block')) .
 	
-	(((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner')) withoutPrimaryContainer. 
+	(((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner')) . 
 	
-	(((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tArgument property: #argumentOwner) comment: 'my owner')) withoutPrimaryContainer.
+	(((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tArgument property: #argumentOwner) comment: 'my owner')) .
 ]
 
 { #category : #definition }
