@@ -3,8 +3,8 @@ A node that wraps around structural entity
 "
 Trait {
 	#name : #FASTTVariableExpression,
-	#traits : 'FASTTExpression + FASTTParameter + FamixTNamedEntity',
-	#classTraits : 'FASTTExpression classTrait + FASTTParameter classTrait + FamixTNamedEntity classTrait',
+	#traits : 'FASTTExpression + FASTTNamedEntity + FASTTParameter',
+	#classTraits : 'FASTTExpression classTrait + FASTTNamedEntity classTrait + FASTTParameter classTrait',
 	#category : #'FAST-Core-Model-Traits'
 }
 

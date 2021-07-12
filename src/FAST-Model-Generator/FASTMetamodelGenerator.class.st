@@ -26,7 +26,8 @@ Class {
 		'tStatement',
 		'tExpressionStatement',
 		'tReturnStatement',
-		'tStatementBlock'
+		'tStatementBlock',
+		'tNamedEntity'
 	],
 	#category : #'FAST-Model-Generator'
 }
@@ -175,10 +176,10 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tReturnStatement --|> tStatement.
 	tStatementBlock --|> tStatement.
 	
-	tVariableExpression --|> #TNamedEntity.
+	tVariableExpression --|> tNamedEntity.
 	tVariableExpression --|> tParameter.
 	
-	tNamedBehaviouralEntity --|> #TNamedEntity
+	tNamedBehaviouralEntity --|> tNamedEntity
 ]
 
 { #category : #definition }
@@ -218,6 +219,7 @@ FASTMetamodelGenerator >> defineTraits [
 	tWithParameters := builder newTraitNamed: #TWithParameters comment: 'I have parameters'.
 	
 	tEntity := builder newTraitNamed: #TEntity comment: 'any entity'.
+	tNamedEntity := builder newTraitNamed: #TNamedEntity comment: 'A entity with a name'.
 	tExpression := builder newTraitNamed: #TExpression comment: self commentForTExpression.
 	tLiteral := builder newTraitNamed: #TLiteral comment: self commentForTLiteral.
 	tBooleanLiteral := builder newTraitNamed: #TBooleanLiteral comment: self commentForTBooleanLiteral.

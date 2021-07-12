@@ -8,8 +8,8 @@ Assumed to correspond to a function or a method
 "
 Trait {
 	#name : #FASTTNamedBehaviouralEntity,
-	#traits : 'FASTTBehaviouralEntity + FamixTNamedEntity',
-	#classTraits : 'FASTTBehaviouralEntity classTrait + FamixTNamedEntity classTrait',
+	#traits : 'FASTTBehaviouralEntity + FASTTNamedEntity',
+	#classTraits : 'FASTTBehaviouralEntity classTrait + FASTTNamedEntity classTrait',
 	#category : #'FAST-Core-Model-Traits'
 }
 
