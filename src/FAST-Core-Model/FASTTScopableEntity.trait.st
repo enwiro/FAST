@@ -1,7 +1,7 @@
 "
 A Entity with an optional scope
 
-Statements are scopable because many statements allow to introduce local variables (e.g. for statement in Java)
+Some statements are scopable because they allow to introduce local variables (e.g. for statement in Java)
 "
 Trait {
 	#name : #FASTTScopableEntity,

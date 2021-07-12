@@ -6,8 +6,8 @@ Trait {
 	#instVars : [
 		'#statementContainer => FMOne type: #FASTTStatementBlock opposite: #statements'
 	],
-	#traits : 'FASTTScopableEntity',
-	#classTraits : 'FASTTScopableEntity classTrait',
+	#traits : 'FASTTEntity',
+	#classTraits : 'FASTTEntity classTrait',
 	#category : #'FAST-Core-Model-Traits'
 }
 

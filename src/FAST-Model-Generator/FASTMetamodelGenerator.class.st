@@ -120,7 +120,7 @@ FASTMetamodelGenerator >> commentForTReturnStatement [
 FASTMetamodelGenerator >> commentForTScopableEntity [
 	^ 'A Entity with an optional scope
 
-Statements are scopable because many statements allow to introduce local variables (e.g. for statement in Java)'
+Some statements are scopable because they allow to introduce local variables (e.g. for statement in Java)'
 ]
 
 { #category : #comments }
@@ -171,7 +171,7 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tBehaviouralEntity --|> tWithParameters.
 	
 	tNamedBehaviouralEntity --|> tBehaviouralEntity.
-	tStatement --|> tScopableEntity.
+	tStatement --|> tEntity.
 	tExpressionStatement --|> tStatement.
 	tReturnStatement --|> tStatement.
 	tStatementBlock --|> tStatement.
