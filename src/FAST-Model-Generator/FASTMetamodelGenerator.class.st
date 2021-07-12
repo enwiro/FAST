@@ -9,7 +9,6 @@ Class {
 	#instVars : [
 		'entity',
 		'tWithArguments',
-		'tParameter',
 		'tWithParameters',
 		'tEntity',
 		'tExpression',
@@ -187,7 +186,6 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tStatementBlock --|> tStatement.
 	
 	tVariableExpression --|> tNamedEntity.
-	tVariableExpression --|> tParameter.
 	
 	tNamedBehaviouralEntity --|> tNamedEntity.
 	
@@ -219,13 +217,13 @@ FASTMetamodelGenerator >> defineRelations [
 	
 	(((tStatement property: #statementContainer) comment: 'Block containing this statement.') *-<> ((tStatementBlock property: #statements) comment: 'Statements enclosed in this block')) .
 	
-	((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner') . 
+	((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tNamedEntity property: #parameterOwner) comment: 'parameterOwner') . 
 	
 	((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tExpression property: #argumentOwner) comment: 'my owner') .
 	
 	((tAssignement property: #lhs) comment: 'The variable assigned') - ((tNamedEntity property: #parentAssignement) comment: 'Optional assignement to the variable').
 	
-	((tAssignement property: #rhs) comment: 'The value assigned') - ((tExpression property: #parentAssignement) comment: 'Optional assignement where this expression is used').
+	((tAssignement property: #rhs) comment: 'The value assigned') - ((tExpression property: #assignedIn) comment: 'Optional assignement where this expression is used').
 ]
 
 { #category : #definition }
@@ -233,7 +231,6 @@ FASTMetamodelGenerator >> defineTraits [
 	super defineTraits.
 	tWithArguments := builder newTraitNamed: #TWithArguments comment: 'I have arguments'. 
 	
-	tParameter := builder newTraitNamed: #TParameter comment: 'I can be a parameter'. 
 	tWithParameters := builder newTraitNamed: #TWithParameters comment: 'I have parameters'.
 	
 	tEntity := builder newTraitNamed: #TEntity comment: 'any entity'.

@@ -5,7 +5,7 @@ Trait {
 	#name : #FASTTAssignement,
 	#instVars : [
 		'#lhs => FMOne type: #FASTTNamedEntity opposite: #parentAssignement',
-		'#rhs => FMOne type: #FASTTExpression opposite: #parentAssignement'
+		'#rhs => FMOne type: #FASTTExpression opposite: #assignedIn'
 	],
 	#traits : 'FASTTExpressionStatement',
 	#classTraits : 'FASTTExpressionStatement classTrait',
@@ -39,7 +39,7 @@ FASTTAssignement >> lhs: anObject [
 
 { #category : #accessing }
 FASTTAssignement >> rhs [
-	"Relation named: #rhs type: #FASTTExpression opposite: #parentAssignement"
+	"Relation named: #rhs type: #FASTTExpression opposite: #assignedIn"
 
 	<generated>
 	<FMComment: 'The value assigned'>
