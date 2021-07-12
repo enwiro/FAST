@@ -27,7 +27,8 @@ Class {
 		'tExpressionStatement',
 		'tReturnStatement',
 		'tStatementBlock',
-		'tNamedEntity'
+		'tNamedEntity',
+		'tAssignement'
 	],
 	#category : #'FAST-Model-Generator'
 }
@@ -46,6 +47,11 @@ FASTMetamodelGenerator class >> prefix [
 { #category : #accessing }
 FASTMetamodelGenerator class >> submetamodels [ 
 	^ { FamixGenerator }
+]
+
+{ #category : #comments }
+FASTMetamodelGenerator >> commentForTAssignement [
+	^ 'A node representing an assignement'
 ]
 
 { #category : #comments }
@@ -179,7 +185,9 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tVariableExpression --|> tNamedEntity.
 	tVariableExpression --|> tParameter.
 	
-	tNamedBehaviouralEntity --|> tNamedEntity
+	tNamedBehaviouralEntity --|> tNamedEntity.
+	
+	tAssignement --|> tExpressionStatement.
 ]
 
 { #category : #definition }
@@ -204,9 +212,13 @@ FASTMetamodelGenerator >> defineRelations [
 	
 	(((tStatement property: #statementContainer) comment: 'Block containing this statement.') *-<> ((tStatementBlock property: #statements) comment: 'Statements enclosed in this block')) .
 	
-	(((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner')) . 
+	((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner') . 
 	
-	(((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tArgument property: #argumentOwner) comment: 'my owner')) .
+	((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tArgument property: #argumentOwner) comment: 'my owner') .
+	
+	((tAssignement property: #lhs) comment: 'The variable assigned') - ((tNamedEntity property: #parentAssignement) comment: 'Optional assignement to the variable').
+	
+	((tAssignement property: #rhs) comment: 'The value assigned') - ((tExpression property: #parentAssignement) comment: 'Optional assignement where this expression is used').
 ]
 
 { #category : #definition }
@@ -233,5 +245,6 @@ FASTMetamodelGenerator >> defineTraits [
 	tStatement := builder newTraitNamed: #TStatement comment: self commentForTStatement.
 	tExpressionStatement := builder newTraitNamed: #TExpressionStatement comment: self commentForTExpressionStatement.
 	tReturnStatement := builder newTraitNamed: #TReturnStatement comment: self commentForTReturnStatement.
-	tStatementBlock := builder newTraitNamed: #TStatementBlock comment: self commentForTStatementBlock
+	tStatementBlock := builder newTraitNamed: #TStatementBlock comment: self commentForTStatementBlock.
+	tAssignement := builder newTraitNamed: #TAssignement comment: self commentForTAssignement.
 ]

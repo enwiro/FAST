@@ -5,6 +5,7 @@ Trait {
 	#name : #FASTTExpression,
 	#instVars : [
 		'#expressionStatementOwner => FMOne type: #FASTTExpressionStatement opposite: #expression',
+		'#parentAssignement => FMOne type: #FASTTAssignement opposite: #rhs',
 		'#returnOwner => FMOne type: #FASTTReturnStatement opposite: #expression'
 	],
 	#traits : 'FASTTArgument + FASTTEntity',
@@ -44,6 +45,23 @@ FASTTExpression >> expressionStatementOwnerGroup [
 	<generated>
 	<navigation: 'ExpressionStatementOwner'>
 	^ MooseSpecializedGroup with: self expressionStatementOwner
+]
+
+{ #category : #accessing }
+FASTTExpression >> parentAssignement [
+	"Relation named: #parentAssignement type: #FASTTAssignement opposite: #rhs"
+
+	<generated>
+	<FMComment: 'Optional assignement where this expression is used'>
+	<derived>
+	^ parentAssignement
+]
+
+{ #category : #accessing }
+FASTTExpression >> parentAssignement: anObject [
+
+	<generated>
+	parentAssignement := anObject
 ]
 
 { #category : #accessing }
