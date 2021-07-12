@@ -27,7 +27,8 @@ Class {
 		'tStatementBlock',
 		'tNamedEntity',
 		'tAssignement',
-		'tInvocation'
+		'tInvocation',
+		'tNumericalLiteral'
 	],
 	#category : #'FAST-Model-Generator'
 }
@@ -122,6 +123,11 @@ FASTMetamodelGenerator >> commentForTNullPointerLiteral [
 ]
 
 { #category : #comments }
+FASTMetamodelGenerator >> commentForTNumericalLiteral [
+	^ 'A numerical literal'
+]
+
+{ #category : #comments }
 FASTMetamodelGenerator >> commentForTReturnStatement [
 	^ 'A return statement node. Contains a reference to the expression which is returned.  '
 ]
@@ -173,6 +179,7 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tCharacterLiteral --|> tLiteral.
 	tNullPointerLiteral --|> tLiteral.
 	tStringLiteral --|> tLiteral.
+	tNumericalLiteral --|> tLiteral.
 	tVariableExpression --|> tExpression.
 	tScopableEntity --|> tEntity.
 	
@@ -241,6 +248,7 @@ FASTMetamodelGenerator >> defineTraits [
 	tCharacterLiteral := builder newTraitNamed: #TCharacterLiteral comment: self commentForTCharacterLiteral.
 	tNullPointerLiteral := builder newTraitNamed: #TNullPointerLiteral comment: self commentForTNullPointerLiteral.
 	tStringLiteral := builder newTraitNamed: #TStringLiteral comment: self commentForTStringLiteral.
+	tNumericalLiteral := builder newTraitNamed: #TNumericalLiteral comment: self commentForTNumericalLiteral.
 	tVariableExpression := builder newTraitNamed: #TVariableExpression comment: self commentForTVariableExpression.
 	tScopableEntity := builder newTraitNamed: #TScopableEntity comment: self commentForTScopableEntity.
 	tBehaviouralEntity := builder newTraitNamed: #TBehaviouralEntity comment: self commentForTBehaviouralEntity.
