@@ -4,12 +4,13 @@ An abstract superclass representing an expression node of a source code.
 Trait {
 	#name : #FASTTExpression,
 	#instVars : [
+		'#argumentOwner => FMOne type: #FASTTWithArguments opposite: #arguments',
 		'#expressionStatementOwner => FMOne type: #FASTTExpressionStatement opposite: #expression',
 		'#parentAssignement => FMOne type: #FASTTAssignement opposite: #rhs',
 		'#returnOwner => FMOne type: #FASTTReturnStatement opposite: #expression'
 	],
-	#traits : 'FASTTArgument + FASTTEntity',
-	#classTraits : 'FASTTArgument classTrait + FASTTEntity classTrait',
+	#traits : 'FASTTEntity',
+	#classTraits : 'FASTTEntity classTrait',
 	#category : #'FAST-Core-Model-Traits'
 }
 
@@ -20,6 +21,30 @@ FASTTExpression classSide >> annotation [
 	<package: #'FAST-Core-Model'>
 	<generated>
 	^self
+]
+
+{ #category : #accessing }
+FASTTExpression >> argumentOwner [
+	"Relation named: #argumentOwner type: #FASTTWithArguments opposite: #arguments"
+
+	<generated>
+	<FMComment: 'my owner'>
+	<container>
+	^ argumentOwner
+]
+
+{ #category : #accessing }
+FASTTExpression >> argumentOwner: anObject [
+
+	<generated>
+	argumentOwner := anObject
+]
+
+{ #category : #navigation }
+FASTTExpression >> argumentOwnerGroup [
+	<generated>
+	<navigation: 'ArgumentOwner'>
+	^ MooseSpecializedGroup with: self argumentOwner
 ]
 
 { #category : #accessing }

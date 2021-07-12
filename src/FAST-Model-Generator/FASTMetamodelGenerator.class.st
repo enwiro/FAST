@@ -8,7 +8,6 @@ Class {
 	#superclass : #FamixMetamodelGenerator,
 	#instVars : [
 		'entity',
-		'tArgument',
 		'tWithArguments',
 		'tParameter',
 		'tWithParameters',
@@ -166,7 +165,6 @@ FASTMetamodelGenerator >> defineHierarchy [
 	super defineHierarchy.
 	tEntity --|> #TEntityMetaLevelDependency.
 	tExpression --|> tEntity.
-	tExpression --|> tArgument. 
 	
 	entity --|> tEntity.
 	
@@ -223,7 +221,7 @@ FASTMetamodelGenerator >> defineRelations [
 	
 	((tWithParameters property: #parameters) comment: 'My parameters') <>-* ((tParameter property: #parameterOwner) comment: 'parameterOwner') . 
 	
-	((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tArgument property: #argumentOwner) comment: 'my owner') .
+	((tWithArguments property: #arguments) comment: 'My arguments') <>-* ((tExpression property: #argumentOwner) comment: 'my owner') .
 	
 	((tAssignement property: #lhs) comment: 'The variable assigned') - ((tNamedEntity property: #parentAssignement) comment: 'Optional assignement to the variable').
 	
@@ -233,7 +231,6 @@ FASTMetamodelGenerator >> defineRelations [
 { #category : #definition }
 FASTMetamodelGenerator >> defineTraits [
 	super defineTraits.
-	tArgument := builder newTraitNamed: #TArgument comment: 'I can be an argument'. 
 	tWithArguments := builder newTraitNamed: #TWithArguments comment: 'I have arguments'. 
 	
 	tParameter := builder newTraitNamed: #TParameter comment: 'I can be a parameter'. 
