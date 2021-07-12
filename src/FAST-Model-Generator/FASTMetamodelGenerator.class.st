@@ -237,6 +237,8 @@ FASTMetamodelGenerator >> defineRelations [
 	((tAssignement property: #lhs) comment: 'The variable assigned') - ((tNamedEntity property: #parentAssignement) comment: 'Optional assignement to the variable').
 	
 	((tAssignement property: #rhs) comment: 'The value assigned') - ((tExpression property: #assignedIn) comment: 'Optional assignement where this expression is used').
+	
+	((tInvocation property: #invoked) comment: 'The name of the behavioural invoked') - ((tNamedEntity property: #invokedIn) comment: 'Optional invocation where this name is used').
 ]
 
 { #category : #definition }
