@@ -4,8 +4,8 @@ any entity
 Class {
 	#name : #FASTEntity,
 	#superclass : #MooseEntity,
-	#traits : 'TEntityMetaLevelDependency',
-	#classTraits : 'TEntityMetaLevelDependency classTrait',
+	#traits : 'FASTTEntity',
+	#classTraits : 'FASTTEntity classTrait',
 	#instVars : [
 		'#endPos => FMProperty',
 		'#startPos => FMProperty'
