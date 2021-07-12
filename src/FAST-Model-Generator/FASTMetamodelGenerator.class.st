@@ -200,15 +200,21 @@ FASTMetamodelGenerator >> defineHierarchy [
 	
 	tInvocation --|> tExpression.
 	tInvocation --|> tWithArguments.
+	
+	tNamedEntity --|> tEntity.
 ]
 
 { #category : #definition }
 FASTMetamodelGenerator >> defineProperties [
 	super defineProperties.
 	(tLiteral property: #value type: #String) comment: 'The literal itself as found in the source code'.
-	entity
+	
+	tEntity
         property: #startPos type: #Number;
         property: #endPos type: #Number.
+
+	tNamedEntity
+		 property: #name type: #String.
 ]
 
 { #category : #definition }
