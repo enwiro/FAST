@@ -28,7 +28,8 @@ Class {
 		'tReturnStatement',
 		'tStatementBlock',
 		'tNamedEntity',
-		'tAssignement'
+		'tAssignement',
+		'tInvocation'
 	],
 	#category : #'FAST-Model-Generator'
 }
@@ -90,6 +91,11 @@ FASTMetamodelGenerator >> commentForTExpression [
 { #category : #comments }
 FASTMetamodelGenerator >> commentForTExpressionStatement [
 	^ 'A node of a statement which is representing a single expression. '
+]
+
+{ #category : #comments }
+FASTMetamodelGenerator >> commentForTInvocation [
+	^ 'A invocation of a behavioural entity'
 ]
 
 { #category : #comments }
@@ -188,6 +194,9 @@ FASTMetamodelGenerator >> defineHierarchy [
 	tNamedBehaviouralEntity --|> tNamedEntity.
 	
 	tAssignement --|> tExpressionStatement.
+	
+	tInvocation --|> tExpression.
+	tInvocation --|> tWithArguments.
 ]
 
 { #category : #definition }
@@ -247,4 +256,5 @@ FASTMetamodelGenerator >> defineTraits [
 	tReturnStatement := builder newTraitNamed: #TReturnStatement comment: self commentForTReturnStatement.
 	tStatementBlock := builder newTraitNamed: #TStatementBlock comment: self commentForTStatementBlock.
 	tAssignement := builder newTraitNamed: #TAssignement comment: self commentForTAssignement.
+	tInvocation := builder newTraitNamed: #TInvocation comment: self commentForTInvocation.
 ]
